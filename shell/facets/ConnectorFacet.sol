@@ -44,7 +44,6 @@ contract ConnectorFacet is MinimalProxyFactory, AccessControllable, TokenControl
       IPKG.CUT memory _pkg,
       string memory _ipfsCid
   ) external payable onlyClient sendSystemFee returns (address) {
-<<<<<<< HEAD
       address pkg = _deployMinimalProxy(model);
       //set implicit approval
       IPKG(pkg).set(address(this), _pkg.cuts, _pkg.target, _pkg.selector);
@@ -52,12 +51,5 @@ contract ConnectorFacet is MinimalProxyFactory, AccessControllable, TokenControl
       MetadataStorage.layout().setMetadata(pkg, _ipfsCid);
       ERC20ImplicitApprovalStorage.layout().implicitApprovals[pkg] = true;
       return pkg;
-=======
-      address instance = _deployMinimalProxy(model);
-      IPKG(instance).set(address(this), _pkg.cuts, _pkg.target, _pkg.selector);
-      PkgStorage.layout().createPkg(instance, msg.sender);
-      MetadataStorage.layout().setMetadata(instance, _ipfsCid);
-      return instance;
->>>>>>> 0ae3de27f6538bbf38454f3b293ac7924705871e
   }
 }

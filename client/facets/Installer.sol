@@ -29,11 +29,6 @@ contract Installer is IInstaller, OwnableInternal, DiamondWritableInternal {
       )
     );
     require(success, string(result));
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 0ae3de27f6538bbf38454f3b293ac7924705871e
     (FacetCut[] memory cuts, address target, bytes4 selector) = IPKG(_pkg).get(IPKG.UPGRADE.INSTALL);
     // if bytes data has length, match first 4 bytes of selector to first 4 bytes of data,
     if (data.length > 0) {
@@ -44,16 +39,12 @@ contract Installer is IInstaller, OwnableInternal, DiamondWritableInternal {
       );
     }
     // then pass the rest of the data to the target
-<<<<<<< HEAD
 
     if (data.length > 0) {
       _diamondCut(cuts, payable(target), data);
     } else {
       _diamondCut(cuts, address(0), '');
     }
-=======
-    _diamondCut(cuts, target, data);
->>>>>>> 0ae3de27f6538bbf38454f3b293ac7924705871e
   }
 
   function uninstall(address _pkg, bytes calldata data) external onlyOwner payable {
