@@ -19,8 +19,12 @@ contract StakingFacet is ERC20ImplicitApproval {
   uint8 public constant decimals = 18;
 
   function stake(address pkg) external payable {
+    require(PkgStorage.layout().isPkg(pkg), "StakingFacet: not a pkg");
     _mint(address(this), msg.value);
-    IVault(pkg).deposit(msg.value, msg.sender);
+    // IVault(pkg).deposit(msg.value, msg.sender);
+    // change to call
+    (bool success, ) = pkg.call(abi.encodeWithSignature("deposit(uint256,address)", msg.value, msg.sender));
+    require(success, "StakingFacet: deposit failed");
     emit Stake(pkg, msg.sender, msg.value);
   }
 
