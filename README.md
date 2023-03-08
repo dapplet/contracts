@@ -78,18 +78,7 @@ The Shell contains a few modifiers that act as security or disincentivization ch
   - `sendSystemFee` sends a fee to the Shell multisig, used on `createClient` and `createPkg` functions.
   - `sendPkgFees` sends a fee to the PKG, which implements an [EIP-4626](https://eips.ethereum.org/EIPS/eip-4626) vault. This allows a PKG/dapplet to accumulate and payout WETH to those staking on the PKG. `sendPkgFees` also sends a fee to the owner of the PKG, but in the future, this may be substituted for supplying voting power in the DAO to the PKG owner.
 
-### Contributors / Special Thanks
+### Contributors
 
 - TJ VanSlooten (@tjvsx)
 - John Reynolds (@gweiworld)
-- Nick Mudge (@mudgen)
-- Marco Castignoli (@marcocastignoli)
-- Nick Barry (@ItsNickBarry)
-- Florian Rappl (@florianrappl)
-- Cory LaViska (@corylaviska)
-- Cyotee Doge (@cyotee)
-- Max Kaay (@maxkaay)
-- Vitalik Buterin (@vitalikbuterin)
-- Victor (@fractalscaling)
-- Roleengineer (@roleengineer)
-- 0xHabitat (@0xHabitat)
